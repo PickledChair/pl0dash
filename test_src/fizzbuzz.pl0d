@@ -1,0 +1,37 @@
+function gcd(x,y)
+begin
+  if x <> y then
+    begin
+      if x < y then return gcd(x,y-x);
+      return gcd(x-y,y)
+    end;
+  return x
+end;
+
+function congruence(a,b)
+begin
+  if gcd(a,b) = b then return 1;
+  return 0
+end;
+
+function fizzbuzz(n)
+begin
+  if congruence(n,3) = 1 then write n;
+  if congruence(n,5) = 1 then
+    begin
+      write n; write n;
+    end;
+end;
+
+var i, r;
+
+begin
+  i := 1;
+  while i <= 100 do
+    begin
+      write i;
+      r := fizzbuzz(i);
+      writeln;
+      i := i + 1;
+    end;
+end.
